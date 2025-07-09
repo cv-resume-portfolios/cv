@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ujjal Barman - Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #f9f9f9;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 10px 0;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 700;
+            color: #2b5876;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            font-size: 15px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #2b5876;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 22px;
+            color: #2b5876;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 100px 0 50px;
+            background: linear-gradient(135deg, #2b5876 0%, #4e4376 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://i.ibb.co/DD94cMRV/Whats-App-Image-2025-07-09-at-11-43-11-eaa3fd56.jpg') no-repeat center center/cover;
+            opacity: 0.2;
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            width: 100%;
+        }
+
+        .hero-text {
+            width: 100%;
+            max-width: 800px;
+            margin-bottom: 40px;
+        }
+
+        .hero-image {
+            width: 100%;
+            max-width: 300px;
+            margin: 0 auto 30px;
+            display: flex;
+            justify-content: center;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center;
+            border: 5px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        .title {
+            font-size: 20px;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 25px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background: #fff;
+        }
+
+        .description {
+            margin-bottom: 30px;
+            line-height: 1.6;
+            font-size: 16px;
+            padding: 0 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 25px;
+            background: #fff;
+            color: #2b5876;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            margin: 5px;
+            font-size: 15px;
+        }
+
+        .btn:hover {
+            background: transparent;
+            color: #fff;
+            border-color: #fff;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: #fff;
+            border: 2px solid #fff;
+        }
+
+        .btn-outline:hover {
+            background: #fff;
+            color: #2b5876;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 32px;
+            color: #2b5876;
+            margin-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(135deg, #2b5876 0%, #4e4376 100%);
+        }
+
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .about-text {
+            width: 100%;
+            max-width: 800px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .about-text h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .about-image {
+            width: 100%;
+            max-width: 300px;
+            text-align: center;
+        }
+
+        .about-image img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .education {
+            background: #f5f7fa;
+        }
+
+        .education-item {
+            background: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 25px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .education-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .education-item h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #2b5876;
+        }
+
+        .education-item .date {
+            display: inline-block;
+            background: #eef2f7;
+            padding: 5px 15px;
+            border-radius: 30px;
+            font-size: 13px;
+            margin-bottom: 15px;
+            color: #4e4376;
+        }
+
+        .education-item p {
+            margin-bottom: 10px;
+            line-height: 1.6;
+            font-size: 15px;
+        }
+
+        .education-item .grade {
+            font-weight: 600;
+            color: #4e4376;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .skill-item {
+            flex-basis: 100%;
+            max-width: 500px;
+            margin-bottom: 25px;
+        }
+
+        .skill-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 15px;
+        }
+
+        .skill-bar {
+            height: 8px;
+            background: #eef2f7;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(135deg, #2b5876 0%, #4e4376 100%);
+            border-radius: 5px;
+            transition: width 1.5s ease;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .contact-item {
+            flex-basis: 100%;
+            max-width: 400px;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #2b5876 0%, #4e4376 100%);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .contact-text h3 {
+            font-size: 17px;
+            margin-bottom: 5px;
+            color: #2b5876;
+        }
+
+        .contact-text p {
+            color: #666;
+            line-height: 1.6;
+            font-size: 15px;
+        }
+
+        footer {
+            background: #2b5876;
+            color: #fff;
+            padding: 25px 0;
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .social-links a {
+            width: 38px;
+            height: 38px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 8px;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: #fff;
+            color: #2b5876;
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            font-size: 13px;
+            opacity: 0.8;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        @media (min-width: 768px) {
+            .hero-content {
+                flex-direction: row;
+                text-align: left;
+            }
+            
+            .hero-text {
+                padding-right: 40px;
+                margin-bottom: 0;
+                text-align: left;
+            }
+            
+            .hero-image {
+                margin-bottom: 0;
+            }
+            
+            .description {
+                padding: 0;
+            }
+            
+            .about-content {
+                flex-direction: row;
+                text-align: left;
+            }
+            
+            .about-text {
+                text-align: left;
+                padding-right: 40px;
+                margin-bottom: 0;
+            }
+            
+            .skill-item {
+                flex-basis: calc(50% - 20px);
+                margin: 0 10px 30px;
+            }
+            
+            .contact-item {
+                flex-basis: calc(50% - 20px);
+                margin: 0 10px 30px;
+            }
+            
+            h1 {
+                font-size: 42px;
+            }
+            
+            .title {
+                font-size: 22px;
+            }
+            
+            .hero-image img {
+                max-width: 300px;
+                height: 300px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .header-container {
+                padding: 12px 0;
+            }
+            
+            .logo {
+                font-size: 20px;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: #fff;
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 30px;
+                transition: all 0.5s ease;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links li {
+                margin: 15px 0;
+            }
+
+            .hamburger {
+                display: block;
+            }
+            
+            h1 {
+                font-size: 30px;
+            }
+            
+            .hero-image img {
+                max-width: 220px;
+                height: 220px;
+            }
+            
+            .section-title h2 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <div class="logo">Ujjal Barman</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <div class="hero-image">
+                <img src="https://i.ibb.co/DD94cMRV/Whats-App-Image-2025-07-09-at-11-43-11-eaa3fd56.jpg" alt="Ujjal Barman">
+            </div>
+            <div class="hero-text">
+                <h1>Ujjal Barman</h1>
+                <div class="title">Graduate</div>
+                <p class="description">
+                    I am Ujjal Barman from Malatipur, Purba Bardhaman — a motivated individual with a passion for creativity and learning. I enjoy working on new challenges and have a keen interest in music, travelling, and driving. I aim to grow professionally while contributing positively to any team I join.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn">Contact Me</a>
+                    <a href="#about" class="btn btn-outline">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Me</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Who Am I?</h3>
+                    <p>I am a graduate with a B.A in History Honors from Kalna College and have completed ITI from Purvasthali-II Government ITI with excellent grades. I have a strong passion for learning and self-improvement.</p>
+                    <p>My educational journey has equipped me with diverse skills, from computer applications to hardware maintenance. I'm particularly proud of my ITI achievement where I scored 91.42%.</p>
+                    <p>Beyond academics, I enjoy exploring new places, listening to music, and driving. These hobbies keep me balanced and bring creativity to my professional work.</p>
+                    <div class="languages">
+                        <h4>Languages:</h4>
+                        <p>Bengali (Fluent), English (Basic), Hindi (Basic)</p>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="https://i.ibb.co/DD94cMRV/Whats-App-Image-2025-07-09-at-11-43-11-eaa3fd56.jpg" alt="Ujjal Barman">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="education" id="education">
+        <div class="container">
+            <div class="section-title">
+                <h2>Education</h2>
+            </div>
+            <div class="education-items">
+                <div class="education-item">
+                    <h3>ITI</h3>
+                    <span class="date">2021</span>
+                    <p>Purvasthali-II Government ITI</p>
+                    <p class="grade">Grade: 91.42%</p>
+                </div>
+                <div class="education-item">
+                    <h3>Graduation (B.A in History Honors)</h3>
+                    <span class="date">2019</span>
+                    <p>Kalna College</p>
+                    <p class="grade">Grade: B (47.25%)</p>
+                </div>
+                <div class="education-item">
+                    <h3>Higher Secondary</h3>
+                    <span class="date">2015</span>
+                    <p>Dhatrigram High School</p>
+                    <p class="grade">Grade: A (74.6%)</p>
+                </div>
+                <div class="education-item">
+                    <h3>Madhyamik</h3>
+                    <span class="date">2013</span>
+                    <p>Dhatrigram High School</p>
+                    <p class="grade">Grade: A (65.42%)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container">
+            <div class="section-title">
+                <h2>Skills</h2>
+            </div>
+            <div class="skills">
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span>Certificate Course in IT Application</span>
+                        <span>B+</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 85%;"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span>Computer Hardware Maintenance</span>
+                        <span>B+</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 85%;"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span>Typing Skills</span>
+                        <span>Certificate</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 75%;"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span>Modular Employable Skills</span>
+                        <span>National Certificate</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 80%;"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span>MS Office (Word, Excel, PPT)</span>
+                        <span>Basic</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 70%;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Me</h2>
+            </div>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="contact-text">
+                        <h3>Phone</h3>
+                        <p>+91 9735613076</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-text">
+                        <h3>Email</h3>
+                        <p>ujjal.barmankalna@gmail.com</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="contact-text">
+                        <h3>Location</h3>
+                        <p>Malatipur, Purba Bardhaman, West Bengal, India</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="contact-text">
+                        <h3>Education</h3>
+                        <p>B.A in History Honors, ITI Graduate</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+            <div class="copyright">
+                &copy; 2023 Ujjal Barman. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            header.classList.toggle('scrolled', window.scrollY > 0);
+        });
+
+        // Mobile menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+            this.querySelector('i').classList.toggle('fa-times');
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function() {
+                navLinks.classList.remove('active');
+                hamburger.querySelector('i').classList.remove('fa-times');
+            });
+        });
+
+        // Animate skill bars on scroll
+        const skillBars = document.querySelectorAll('.skill-progress');
+        
+        function animateSkillBars() {
+            skillBars.forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0';
+                setTimeout(() => {
+                    bar.style.width = width;
+                }, 100);
+            });
+        }
+
+        // Intersection Observer for skill bars
+        const skillsSection = document.querySelector('#skills');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateSkillBars();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.2 });
+
+        observer.observe(skillsSection);
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Ensure circular image is properly displayed
+        document.addEventListener('DOMContentLoaded', function() {
+            const heroImage = document.querySelector('.hero-image img');
+            heroImage.onload = function() {
+                // Check if image is properly loaded and not cropped
+                const naturalWidth = this.naturalWidth;
+                const naturalHeight = this.naturalHeight;
+                
+                if (naturalWidth > naturalHeight) {
+                    this.style.objectPosition = 'center center';
+                } else {
+                    this.style.objectPosition = 'center top';
+                }
+            };
+            
+            // Trigger the check in case image is cached
+            if (heroImage.complete) {
+                heroImage.onload();
+            }
+        });
+    </script>
+</body>
+</html>
