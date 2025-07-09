@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Get Your CV & Portfolio | Designed by Sumit</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {margin: 0; padding: 0; box-sizing: border-box;}
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
+    }
+    header {
+      background: #222;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+    header h1 {font-size: 2em;}
+    header p {font-size: 1.1em;}
+
+    .hero {
+      background: linear-gradient(135deg, #000, #444);
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    .hero h2 {
+      font-size: 2em;
+      margin-bottom: 10px;
+    }
+    .hero p {
+      font-size: 1.2em;
+      margin-bottom: 20px;
+    }
+    .hero button {
+      background: #ffcc00;
+      color: black;
+      border: none;
+      padding: 10px 20px;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .section {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .services, .testimonials {
+      display: grid;
+      gap: 20px;
+    }
+    .services div, .testimonials div {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .services h3, .testimonials h3 {
+      margin-bottom: 10px;
+    }
+
+    form {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    form input, form textarea {
+      width: 100%;
+      margin-bottom: 15px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-family: inherit;
+    }
+    form button {
+      background: #000;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #222;
+      color: white;
+    }
+
+    @media (min-width: 768px) {
+      .services, .testimonials {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>CV & Portfolio Design</h1>
+    <p>By Sumit - Graphic Designer & Web Developer</p>
+  </header>
+
+  <section class="hero">
+    <h2>Stand Out with a Pro CV</h2>
+    <p>I design custom CVs and portfolios at minimum cost. Impress recruiters with professional design.</p>
+    <button onclick="document.getElementById('orderForm').scrollIntoView({behavior: 'smooth'})">Get Yours Now</button>
+  </section>
+
+  <section class="section">
+    <h2 style="text-align:center; margin-bottom: 30px;">Services I Offer</h2>
+    <div class="services">
+      <div>
+        <h3>Custom CV Design</h3>
+        <p>Unique, eye-catching designs tailored to your career field. PDF/Print ready.</p>
+        <p><strong>From ₹99 only</strong></p>
+      </div>
+      <div>
+        <h3>Portfolio Website</h3>
+        <p>Modern single-page or multi-page portfolios built with HTML/CSS/JS.</p>
+        <p><strong>From ₹199 only</strong></p>
+      </div>
+      <div>
+        <h3>LinkedIn Banners & Resume Icons</h3>
+        <p>Personal branding add-ons to boost your profile presence.</p>
+        <p><strong>Free with CV/Portfolio</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 style="text-align:center; margin-bottom: 30px;">Happy Clients</h2>
+    <div class="testimonials">
+      <div>
+        <h3>Rahul D.</h3>
+        <p>"Sumit's CV design got me shortlisted within a week. Highly recommended!"</p>
+      </div>
+      <div>
+        <h3>Anjali M.</h3>
+        <p>"The portfolio website is clean and modern. Great work!"</p>
+      </div>
+      <div>
+        <h3>Faizan A.</h3>
+        <p>"Fast, affordable, and looks professional. Thank you!"</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="orderForm">
+    <h2 style="text-align:center; margin-bottom: 30px;">Place Your Order</h2>
+    <form onsubmit="submitForm(event)">
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Email Address" required>
+      <input type="text" placeholder="Service (CV / Portfolio / Both)" required>
+      <textarea rows="4" placeholder="Describe what you need..."></textarea>
+      <button type="submit">Send Request</button>
+    </form>
+  </section>
+
+  <footer>
+    © 2025 Sumit | Made with ❤️ in India
+  </footer>
+
+  <script>
+    function submitForm(event) {
+      event.preventDefault();
+      alert("Thank you! We'll get back to you shortly via email.");
+    }
+  </script>
+
+</body>
+</html>
