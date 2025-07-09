@@ -188,6 +188,7 @@
             border: 2px solid transparent;
             margin: 5px;
             font-size: 15px;
+            cursor: pointer;
         }
 
         .btn:hover {
@@ -205,6 +206,17 @@
         .btn-outline:hover {
             background: #fff;
             color: #2b5876;
+        }
+
+        .btn-download {
+            background: #4CAF50;
+            color: white;
+            border: 2px solid #4CAF50;
+        }
+
+        .btn-download:hover {
+            background: transparent;
+            color: #4CAF50;
         }
 
         section {
@@ -576,7 +588,7 @@
                 </p>
                 <div class="hero-buttons">
                     <a href="#contact" class="btn">Contact Me</a>
-                    <a href="#about" class="btn btn-outline">Learn More</a>
+                    <button id="downloadBtn" class="btn btn-download">Download CV</button>
                 </div>
             </div>
         </div>
@@ -743,13 +755,12 @@
     <footer>
         <div class="container">
             <div class="social-links">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
+                
+                <a href="index.html"><i class="fa fa-briefcase"></i></a>
+                
             </div>
             <div class="copyright">
-                &copy; 2023 Ujjal Barman. All Rights Reserved.
+                &copy; 2025-26 Ujjal Barman. All Rights Reserved.
             </div>
         </div>
     </footer>
@@ -833,6 +844,68 @@
             if (heroImage.complete) {
                 heroImage.onload();
             }
+        });
+
+        // Download CV functionality
+        document.getElementById('downloadBtn').addEventListener('click', function() {
+            // Create a temporary link element
+            const link = document.createElement('a');
+            link.href = 'Resume.pdf'; // Make sure Resume.pdf is in the same directory
+            link.download = 'Ujjal_Barman_Resume.pdf'; // Suggested filename for download
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            
+            // Fallback in case the file doesn't exist locally
+            setTimeout(() => {
+                const blob = new Blob([`===== Page 1 =====
+
+SCAN FOR DIGITAL PORTFOLIO
+
+UJJAL BARMAN
+
+GRADUATE
+
+I am Ujal Barman from Malatipur, Purba Bardhaman — a motivated individual with a passion for creativity and learning. I enjoy working on new challenges and have a keen interest in music, travelling, and driving. I aim to grow professionally while contributing positively to any team I join.
+
+9735613076
+
+ujjal.barmankalna@gmail.com
+
+EDUCATION
+
+2013 MADHYAMIK 65.42%, GRADE A
+
+2015 H.S., 74.6%, GRADE A
+
+from DHATRIGRAM HIGH SCHOOL
+
+2019 GRADUATION (B.A IN HISTORY HONS), 47.25%, GRADE B
+
+from KALNA COLLEGE
+
+2021 ITI, 91.42%,
+
+from PURBASTHALI-II GOVERNMENT ITI
+
+SKILL:- 1. CERTIFICATE COURSE IN INFORMATION TECHNOLOGY APPLICATION OF SIX MONTH WITH GRADE B+
+
+SKILL:- 2. CERTIFICATE COURSE IN COMPUTER HARDWARE MAINTENANCE OF SIX MONTH WITH GRADE B+
+
+SKILL:- 3. CERTIFICATE COURSE IN TYPING SKILL OF THREE MONTHS
+
+SKILL:- 4. NATIONAL CERTIFICATE IN MODULAR EMPLOYABLE SKILLS
+
+SKILL:- 5. BASIC MS OFFICE,XL,WORD,PPT AND MORE
+
+LANGUAGES
+
+BENGALI ENGLISH (BASIC) HINDI (BASIC)`], { type: 'application/pdf' });
+                const url = URL.createObjectURL(blob);
+                link.href = url;
+                link.click();
+                URL.revokeObjectURL(url);
+            }, 100);
         });
     </script>
 </body>
