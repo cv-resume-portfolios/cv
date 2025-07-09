@@ -13,10 +13,9 @@
       background-color: #f5f5f5;
       color: #333;
       overflow-x: hidden;
-      padding-top: 70px; /* Added for fixed nav */
+      padding-top: 70px;
     }
-    
-    /* Fixed Navigation */
+
     .fixed-nav {
       position: fixed;
       top: 0;
@@ -49,15 +48,7 @@
       color: #fff;
       padding: 25px;
       text-align: center;
-      margin-top: 70px; /* Added to account for fixed nav */
-    }
-    header h1 {
-      font-size: 2.2em;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-    }
-    header p {
-      font-size: 1.1em;
-      opacity: 0.9;
+      margin-top: 70px;
     }
 
     .hero {
@@ -79,27 +70,28 @@
       animation: pulse 8s infinite alternate;
     }
     .hero h2 {
-      font-size: 2.5em;
+      font-size: 2em;
       margin-bottom: 15px;
       position: relative;
     }
     .hero p {
-      font-size: 1.3em;
+      font-size: 1.1em;
       margin-bottom: 30px;
       max-width: 700px;
       margin-left: auto;
       margin-right: auto;
       position: relative;
     }
+
     .cta-button {
       background: #ffcc00;
       color: black;
       border: none;
-      padding: 15px 30px;
+      padding: 12px 24px;
       font-weight: bold;
       cursor: pointer;
       border-radius: 50px;
-      font-size: 1.1em;
+      font-size: 1em;
       transition: all 0.3s ease;
       position: relative;
       overflow: hidden;
@@ -109,31 +101,13 @@
       transform: translateY(-3px);
       box-shadow: 0 6px 20px rgba(255,204,0,0.6);
     }
-    .cta-button:active {
-      transform: translateY(1px);
-    }
-    .cta-button::after {
-      content: "";
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 5px;
-      height: 5px;
-      background: rgba(255,255,255,0.5);
-      opacity: 0;
-      border-radius: 100%;
-      transform: scale(1, 1) translate(-50%);
-      transform-origin: 50% 50%;
-    }
-    .cta-button:focus:not(:active)::after {
-      animation: ripple 1s ease-out;
-    }
 
     .section {
       padding: 60px 20px;
       max-width: 1000px;
       margin: auto;
     }
+
     .section-title {
       text-align: center;
       margin-bottom: 40px;
@@ -153,10 +127,13 @@
       background: linear-gradient(90deg, #ffcc00, transparent);
       border-radius: 3px;
     }
+
     .services, .testimonials {
       display: grid;
+      grid-template-columns: 1fr;
       gap: 25px;
     }
+
     .services div, .testimonials div {
       background: #fff;
       padding: 25px;
@@ -166,10 +143,7 @@
       position: relative;
       overflow: hidden;
     }
-    .services div:hover, .testimonials div:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-    }
+
     .services div::before, .testimonials div::before {
       content: "";
       position: absolute;
@@ -179,14 +153,12 @@
       height: 100%;
       background: #ffcc00;
     }
+
     .services h3, .testimonials h3 {
       margin-bottom: 15px;
       color: #222;
     }
-    .services p, .testimonials p {
-      margin-bottom: 10px;
-      line-height: 1.6;
-    }
+
     .price-tag {
       font-weight: bold;
       color: #ff6600;
@@ -195,40 +167,31 @@
 
     .whatsapp-float {
       position: fixed;
-      bottom: 30px;
-      right: 30px;
+      bottom: 20px;
+      right: 20px;
       background: #25D366;
       color: white;
-      width: 60px;
-      height: 60px;
+      width: 50px;
+      height: 50px;
       border-radius: 50%;
       text-align: center;
-      font-size: 30px;
+      font-size: 26px;
       box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5);
       z-index: 100;
       display: flex;
       align-items: center;
       justify-content: center;
       animation: float 3s ease-in-out infinite;
-      transition: all 0.3s;
-    }
-    .whatsapp-float:hover {
-      transform: scale(1.1);
-      box-shadow: 0 6px 25px rgba(37, 211, 102, 0.7);
     }
 
     footer {
       text-align: center;
-      padding: 30px;
+      padding: 30px 20px;
       background: linear-gradient(135deg, #222, #444);
       color: white;
       margin-top: 40px;
     }
-    footer p {
-      opacity: 0.8;
-    }
 
-    /* Animations */
     @keyframes pulse {
       0% { transform: translate(0, 0); }
       50% { transform: translate(50px, 50px); }
@@ -258,7 +221,6 @@
       .services, .testimonials {
         grid-template-columns: repeat(3, 1fr);
       }
-      
       .fixed-nav {
         flex-direction: row;
         justify-content: space-between;
@@ -266,6 +228,22 @@
       }
       .fixed-nav h1 {
         margin-bottom: 0;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero h2 {
+        font-size: 1.5em;
+      }
+      .hero p {
+        font-size: 1em;
+      }
+      .cta-button {
+        padding: 10px 20px;
+        font-size: 0.95em;
+      }
+      .fixed-nav h1 {
+        font-size: 1.2em;
       }
     }
   </style>
@@ -277,8 +255,6 @@
     <h1>CV & Portfolio Design</h1>
     <p>By Sumit - Graphic Designer & Web Developer</p>
   </nav>
-
-  
 
   <section class="hero">
     <h2 class="animate__animated animate__fadeInUp">Stand Out with a Pro CV</h2>
@@ -326,7 +302,7 @@
   </section>
 
   <a href="https://wa.me/9474165029?text=I%20want%20to%20make%20CV" class="whatsapp-float" target="_blank">
-    <i class="fab fa-whatsapp"></i>
+   <i class="fa fa-whatsapp"></i>
   </a>
 
   <footer class="animate__animated animate__fadeInUp">
@@ -340,11 +316,9 @@
       const message = encodeURIComponent('I want to make CV');
       window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
     }
-    
-    // Add animation on scroll
+
     document.addEventListener('DOMContentLoaded', function() {
       const animateElements = document.querySelectorAll('.animate__animated');
-      
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
@@ -357,13 +331,12 @@
       }, {
         threshold: 0.1
       });
-      
+
       animateElements.forEach(element => {
         element.style.opacity = 0;
         observer.observe(element);
       });
-      
-      // Make fixed nav smaller on scroll
+
       window.addEventListener('scroll', function() {
         const nav = document.querySelector('.fixed-nav');
         if (window.scrollY > 50) {
@@ -376,6 +349,5 @@
       });
     });
   </script>
-
 </body>
 </html>
